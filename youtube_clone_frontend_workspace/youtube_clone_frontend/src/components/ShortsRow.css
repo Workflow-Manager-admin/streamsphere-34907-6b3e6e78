@@ -1,0 +1,78 @@
+.shorts-row {
+  background: var(--shorts-bg);
+  border-radius: var(--card-radius);
+  padding: 8px 0 17px 0;
+  margin: 0 0 18px 0;
+  position: relative;
+}
+
+.shorts-title {
+  color: var(--primary-text);
+  font-size: 1.13rem;
+  font-weight: 600;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+}
+
+.shorts-items {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 18px;
+  padding: 3px 7px 3px 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #222 #181818;
+}
+
+.shorts-card {
+  background: #232323;
+  border-radius: 14px;
+  width: 160px;
+  min-width: 160px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-right: 0;
+  box-shadow: 0 1px 9px rgba(0,0,0,0.13);
+  transition: box-shadow 0.16s, transform 0.13s;
+  cursor: pointer;
+}
+.shorts-card:hover, .shorts-card:focus {
+  box-shadow: 0 6px 28px rgba(0,0,0,0.28);
+  transform: scale(1.045);
+}
+
+.shorts-thumb {
+  border-radius: 14px 14px 14px 14px;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 9/16;
+  background: #444;
+}
+.shorts-title-meta {
+  color: var(--primary-text);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 8px 0 0 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 92%;
+}
+.shorts-meta {
+  color: var(--secondary-text);
+  font-size: 0.98em;
+  margin: 1px 0 13px 9px;
+  font-weight: 400;
+}
+
+@media (max-width: 800px) {
+  .shorts-card {
+    width: 88vw;
+    min-width: 44vw;
+  }
+}

@@ -1,0 +1,7 @@
+<svg width="98" height="28" viewBox="0 0 98 28" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <rect width="38" height="28" rx="7" fill="#FF0000"/>
+    <polygon points="15,8 29,14 15,20" fill="#fff"/>
+  </g>
+  <text x="43" y="20" font-family="Roboto,Helvetica,sans-serif" font-size="18" font-weight="bold" fill="#fff">YouTube</text>
+</svg>

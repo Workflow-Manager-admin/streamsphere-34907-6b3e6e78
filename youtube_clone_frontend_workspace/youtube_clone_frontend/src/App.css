@@ -1,104 +1,113 @@
-/* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --bg-canvas: #0f0f0f;
+  --header-bg: #181818;
+  --sidebar-bg: #181818;
+  --primary-text: #fff;
+  --secondary-text: #aaa;
+  --accent-red: #ff0000;
+  --card-bg: #181818;
+  --chip-bg: #272727;
+  --button-bg: #222;
+  --border-color: #303030;
+  --avatar-bg: #333;
+  --shorts-bg: #181818;
+
+  --body-font: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --header-height: 56px;
+  --sidebar-width: 240px;
+  --main-max-width: 1600px;
+  --card-radius: 12px;
+  --btn-radius: 22px;
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+body {
+  background: var(--bg-canvas);
+  font-family: var(--body-font);
+  margin: 0;
+  color: var(--primary-text);
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.app-root {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background: var(--bg-canvas);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.yt-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  height: var(--header-height);
+  background: var(--header-bg);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.yt-sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  height: calc(100vh - var(--header-height));
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  z-index: 100;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  transition: width 0.18s;
+}
+.yt-sidebar.collapsed {
+  width: 64px;
+  min-width: 64px;
+}
+.app-root.sidebar-collapsed .yt-sidebar {
+  width: 64px;
+  min-width: 64px;
+}
+.app-root.sidebar-collapsed .main-content {
+  margin-left: 64px;
+}
+.main-content {
+  flex: 1 1 auto;
+  background: var(--bg-canvas);
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 32px 36px;
+  max-width: var(--main-max-width);
+  width: 100%;
+  box-sizing: border-box;
+  transition: margin-left 0.18s;
 }
 
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
-}
-
-.theme-toggle:active {
-  transform: translateY(0);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 1199px) {
+  .main-content {
+    padding: 16px 12px;
   }
-  to {
-    transform: rotate(360deg);
+  .yt-sidebar {
+    width: 72px;
+    min-width: 72px;
   }
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+    padding: 8px 2vw;
+  }
+  .yt-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    padding: 3vw 0.5vw;
   }
 }

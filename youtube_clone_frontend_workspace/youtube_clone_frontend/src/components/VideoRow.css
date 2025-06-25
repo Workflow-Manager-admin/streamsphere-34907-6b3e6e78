@@ -1,0 +1,25 @@
+.video-row {
+  width: 100%;
+  margin-bottom: 19px;
+}
+.video-row-title {
+  font-size: 1.13rem;
+  font-weight: bold;
+  color: var(--primary-text);
+  margin-bottom: 15px;
+  margin-left: 2px;
+}
+.video-row-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 19px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (max-width: 800px) {
+  .video-row-cards {
+    gap: 11px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
